@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+yfinance
+joblib
+sqlmodel
+scikit-learn
+xgboost
+lightgbm
+ta
+imblearn
