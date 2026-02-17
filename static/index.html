@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot de Inversión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+  
+  <header class="header glass" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px;">
+    <div class="logo bounce">
+      <svg width="56" height="56" fill="none" viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r="26" stroke="#2a5bd7" stroke-width="3"/>
+        <path d="M18 38L38 18" stroke="#2a5bd7" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="18" cy="38" r="3" fill="#2a5bd7"/>
+        <circle cx="38" cy="18" r="3" fill="#2a5bd7"/>
+      </svg>
+    </div>
+    <h1 style="margin: 0;">Bot de Inversión en Bolsa</h1>
+    <p class="subtitle" style="margin: 0;">Tu asistente inteligente para invertir de forma sencilla y segura.</p>
+  </header>
+
+  <main>
+    <div id="wallet-panel" class="wallet-bar glass" style="margin-bottom: 20px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <strong>💰 Saldo Disponible:</strong>
+        <span id="wallet-balance" style="font-size: 1.2em; color: var(--primary);">Cargando...</span>
+      </div>
+      <button onclick="verCartera()" class="cool-btn" style="padding: 5px 15px; font-size: 0.9em;">Ver Historial</button>
+    </div>
+
+    <div class="container">
+      <div class="bot-card glass">
+        <div id="chat"></div>
+        <form id="chat-form" autocomplete="off">
+          <input type="text" id="user-input" placeholder="¿En qué acción quieres invertir hoy?" required>
+          <button type="submit" class="cool-btn">
+            <span>Enviar</span>
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" style="vertical-align:middle;margin-left:6px;">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer glass" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <small>© 2025 Bot de Inversión.</small>
+    <button onclick="resetDatabase()" class="cool-btn" style="background: #ef4444; padding: 5px 10px; font-size: 0.8em;"> Reset </button>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="/static/bot.js"></script>
+</body>
+</html>
