@@ -46,21 +46,19 @@ CRYPTO_TICKERS = {
     "bitcoin": "BTC-USD", "btc": "BTC-USD",
     "ethereum": "ETH-USD", "eth": "ETH-USD",
     "solana": "SOL-USD", "sol": "SOL-USD",
-    "cardano": "ADA-USD", "ada": "ADA-USD",
-    "dogecoin": "DOGE-USD", "doge": "DOGE-USD",
-    "ripple": "XRP-USD", "xrp": "XRP-USD",
-    "polkadot": "DOT-USD", "dot": "DOT-USD",
-    "matic": "MATIC-USD", "polygon": "MATIC-USD",
-    "avax": "AVAX-USD", "avalanche": "AVAX-USD"
+    "cardano": "ADA-USD", "ada": "ADA-USD"
 }
 
 DESCRIPCIONES = {
     "bitcoin": "Bitcoin es la criptomoneda líder del mercado.",
-    "dogecoin": "Dogecoin es una criptomoneda de código abierto basada en blockchain.",
+    "btc": "Bitcoin es la criptomoneda líder del mercado.",
     "ethereum": "Ethereum es una plataforma blockchain para contratos inteligentes.",
-    "cardano": "Cardano es una blockchain científica y ecológica."
+    "eth": "Ethereum es una plataforma blockchain para contratos inteligentes.",
+    "solana": "Solana es una blockchain de alto rendimiento orientada a aplicaciones descentralizadas.",
+    "sol": "Solana es una blockchain de alto rendimiento orientada a aplicaciones descentralizadas.",
+    "cardano": "Cardano es una blockchain basada en un enfoque académico y de prueba de participación.",
+    "ada": "Cardano es una blockchain basada en un enfoque académico y de prueba de participación."
 }
-
 # --- CARGA DEL MODELO ---
 model = None
 scaler = None
@@ -182,7 +180,7 @@ def get_crypto_data(nombre: str = Query(...), n: int = Query(180)):
     }
 
 # ==============================================================================
-#  🧠 EL CEREBRO DEL BOT (Lógica Actualizada)
+#  EL CEREBRO DEL BOT 
 # ==============================================================================
 @app.get("/predict/{coin}")
 def predict_coin(coin: str):
@@ -203,7 +201,7 @@ def predict_coin(coin: str):
             print(f"⚡ CACHÉ HIT: Devolviendo datos guardados para {coin}")
             return PREDICTION_CACHE[coin_key]['data']
             
-    print(f"🔄 CACHÉ MISS: Calculando predicción fresca para {coin}...")
+    print(f"🔄 CACHÉ MISS: Calculando predicción para {coin}...")
 
     # 1. Obtenemos datos (1 año para que la EMA21 sea precisa)
     df = get_live_data(coin, period="1y")
@@ -227,7 +225,7 @@ def predict_coin(coin: str):
         return res
 
     try:
-        # 2. Calcular Indicadores (Usando tu archivo features.py)
+        # 2. Calcular Indicadores
         # Importante: features.py espera Close, High, Low, Volume
         df_processed = calculate_indicators(df)
         
@@ -263,7 +261,7 @@ def predict_coin(coin: str):
         filtro_rsi = rsi < 70
         filtro_ia = probabilidad > 0.50
         
-        # Decisión Final: SOLO compramos si TODO es verdadero
+        # Decisión Final: SOLO compramos si todo es verdadero
         es_compra = filtro_tendencia and filtro_rsi and filtro_ia
         
         # Gestión de Riesgo (Stop Loss -4% / Take Profit +8%)
@@ -395,7 +393,7 @@ def scan_market():
             else:
                 prob = 0.5 # Fallback si no hay modelo
 
-            # 6. Lógica de Estrategia (La Ganadora)
+            # 6. Lógica de Estrategia
             precio_actual = float(df['Close'].iloc[-1])
             ema_21 = float(df['EMA_21'].iloc[-1])
             rsi = float(df['RSI'].iloc[-1])
