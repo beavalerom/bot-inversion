@@ -1,6 +1,5 @@
 // --- CONFIGURACIÓN GLOBAL ---
-const API_PORT = "8001"; 
-const API_URL = `http://127.0.0.1:${API_PORT}`;
+const API_URL = window.location.origin;
 
 // MAPEO DE MONEDAS
 const TICKER_MAP = {
