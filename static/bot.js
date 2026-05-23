@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('user-input');
 
   updateWallet(); 
-  createMessage('Hola 👋 Soy tu Broker IA. Escribe una moneda (ej: "Solana", "BTC") para analizar.', 'bot');
+  createMessage('Hola 👋 Soy tu Broker IA. Escribe una moneda (ej: "Bitcoin", "Ethereum", "Solana" o "Cardano") para analizar.', 'bot');
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
