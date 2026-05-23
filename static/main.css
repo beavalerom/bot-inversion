@@ -71,7 +71,7 @@ h1 { font-size:1.6rem; margin:6px 0; font-weight:700; }
   gap: 14px;
 }
 
-/* Chat area */
+/* Chat */
 #chat {
   overflow-y: auto;
   max-height: 56vh;
@@ -81,7 +81,6 @@ h1 { font-size:1.6rem; margin:6px 0; font-weight:700; }
   gap:12px;
 }
 
-/* Input area sticks to bottom of card */
 form { display:flex; gap:10px; align-items:center; }
 
 input[type="text"] {
@@ -110,7 +109,6 @@ input[type="text"]:focus { outline:none; box-shadow:0 6px 18px rgba(34,77,163,0.
   #chat { max-height: 48vh; }
 }
 
-/* Message bubbles: left=bot, right=user */
 .message { display:flex; align-items:flex-end; gap:8px; }
 .message.bot { justify-content:flex-start; }
 .message.user { justify-content:flex-end; }
@@ -135,7 +133,7 @@ input[type="text"]:focus { outline:none; box-shadow:0 6px 18px rgba(34,77,163,0.
 .crypto-title { font-weight:700; color:var(--primary); }
 .crypto-desc { font-size:0.96rem; color:var(--muted); }
 
-/* Comparison controls (Normalized/Absolute) */
+/* Comparacion */
 .compare-controls { display:flex; gap:8px; margin:6px 0 4px 0; }
 .cmp-mode {
   padding:8px 12px;
@@ -155,7 +153,6 @@ input[type="text"]:focus { outline:none; box-shadow:0 6px 18px rgba(34,77,163,0.
   border-color: rgba(42,91,215,0.12);
 }
 
-/* Comparison card specifics */
 .compare-card { padding:10px 12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,255,0.98)); border:1px solid rgba(42,91,215,0.06); }
 .compare-title { font-weight:700; color:var(--primary); margin-bottom:6px; }
 .compare-stats { font-size:0.95rem; color:var(--text); margin-bottom:8px; }
@@ -167,7 +164,6 @@ input[type="text"]:focus { outline:none; box-shadow:0 6px 18px rgba(34,77,163,0.
 body.dark .cmp-mode { border-color: rgba(255,255,255,0.06); color: var(--text-light); }
 body.dark .cmp-mode.active { box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
 
-/* Dark theme modifiers */
 body.dark { background: linear-gradient(180deg,#071029 0%, #071630 100%); color:var(--text-light); }
 body.dark .bot-card { background: linear-gradient(180deg, rgba(20,26,44,0.82), rgba(12,18,34,0.75)); }
 body.dark .glass { background: var(--glass-dark-bg); }

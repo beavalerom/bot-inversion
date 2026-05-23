@@ -7,12 +7,7 @@ const TICKER_MAP = {
     "bitcoin": "btc", "btc": "btc",
     "ethereum": "eth", "eth": "eth",
     "solana": "sol", "sol": "sol",
-    "cardano": "ada", "ada": "ada",
-    "dogecoin": "doge", "doge": "doge",
-    "ripple": "xrp", "xrp": "xrp",
-    "polkadot": "dot", "dot": "dot",
-    "matic": "matic", "polygon": "matic",
-    "avax": "avax", "avalanche": "avax"
+    "cardano": "ada", "ada": "ada"
 };
 
 // --- FUNCION DE RESET (PARA EL BOTÓN) ---
@@ -491,12 +486,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Renderizar mensaje
         const wrapper = createMessage(html, 'bot', true);
 
-        // --- LÓGICA DE GRÁFICO (RESTAURADA) ---
+        // --- LÓGICA DE GRÁFICO ---
         setTimeout(() => {
             const canvas = document.getElementById(cid);
             if (canvas && window.Chart) {
                 // Color de la línea según la tendencia GLOBAL (Inicio vs Final)
-                // Igual que en tu versión original
                 const tendenciaGlobal = prices[prices.length - 1] >= prices[0] ? '#10b981' : '#ef4444';
 
                 new Chart(canvas.getContext('2d'), {
